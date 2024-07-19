@@ -1,13 +1,41 @@
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) throws Exception {
-        
-        Funcionario f1 = new Funcionario(1, "Josias Campos", "12345678910", "Vendedor", 5000);
+        // Crie um formulário de texto usando a classe Scanner para pedir ao usuário as informações do funcionário, crie um funcionário usando essas informações e rode o método mostrarInformacoes() do funcionário criado.
+        Scanner leitor = new Scanner(System.in);
 
-        Funcionario f2 = new Funcionario(2, "Maria Rosário", "98765432100", "Gerente", 9000);
+        System.out.println("--------CADASTRO DE FUNCIONÁRIOS--------");
+
+        System.out.println("Digite a matricula:");
+        int novoMatricula = Integer.parseInt(leitor.nextLine());
+
+        System.out.println("Digite o nome:");
+        String novoNome = leitor.nextLine();
+
+        System.out.println("Digite o cpf:");
+        String novoCpf = leitor.nextLine();
+
+        System.out.println("Digite o cargo:");
+        String novoCargo = leitor.nextLine();
+
+        System.out.println("Digite o salário:");
+        double novoSalario = Double.parseDouble(leitor.nextLine());
+
+        Funcionario novoFuncionario = new Funcionario(novoMatricula, novoNome, novoCpf, novoCargo, novoSalario);
+
+        System.out.println("Funcionário cadastrado com sucesso!");
+
+        novoFuncionario.mostrarInformacoes();
         
-        f1.mostrarInformacoes();
+        // Funcionario f1 = new Funcionario(1, "Josias Campos", "12345678910", "Vendedor", 5000);
+
+        // Funcionario f2 = new Funcionario(2, "Maria Rosário", "98765432100", "Gerente", 9000);
         
-        f2.mostrarInformacoes();
+        // f1.mostrarInformacoes();
+
+        // f2.mostrarInformacoes();
+
         // System.out.println("----------Funcionario 1----------");
         // System.out.println("Matricula: "+f1.matricula);
         // System.out.println("Nome: "+f1.nome);
