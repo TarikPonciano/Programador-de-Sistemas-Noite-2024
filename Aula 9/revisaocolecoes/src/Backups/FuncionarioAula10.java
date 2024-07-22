@@ -1,16 +1,15 @@
 public class Funcionario {
     public int matricula;
     public String nome;
-    public String cargo;
     public String cpf;
+    public String cargo;
     public double salario;
-
-    public Funcionario(int matricula, String nome, String cargo, String cpf, double salario) {
-
+    
+    public Funcionario(int matricula, String nome, String cpf, String cargo, double salario){
         this.matricula = matricula;
         this.nome = nome;
-        this.cargo = cargo;
         this.cpf = cpf;
+        this.cargo = cargo;
         this.salario = salario;
     }
 
@@ -23,5 +22,5 @@ public class Funcionario {
         System.out.println("Cargo: "+this.cargo);
         System.out.printf("Salario: R$ %.2f \n",this.salario);
     }
-
+    
 }
