@@ -1,8 +1,13 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
+    static List<Funcionario> funcionarios = new ArrayList<>();
+
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
+        
         // Crie um programa que imprime na tela a seguinte mensagem:
 
         /*
@@ -17,7 +22,19 @@ public class App {
          * 0. Sair
          * 
          */
+
+        // Crie uma lista para armazenar os funcionários de seu programa. Elabore uma maneira de adicionar os funcionários a esta lista quando executar o cadastrarFuncionarios().
+        // 1. Criar a lista de funcionários logo abaixo da linha public class App
+        // 2. Na função cadastrarFuncionario(), inserir uma linha funcionarios.add(novoFuncionário)
+         
+        // Crie uma função verFuncionarios() que lê a lista de funcionários e os exibe na tela como no exemplo:
+        /* Lista de Funcionários:
+         * 1. Fulano da Silva
+         * 2. Manoel Ciclano
+         * 3. Beltrano Moreira
+         */
         while (true) {
+
             System.out.println("Bem vindo a Empresa XYZ");
             System.out.println();
             System.out.println("Bem vindo ao Sistema RH");
@@ -41,7 +58,11 @@ public class App {
             if (opcao == 1) {
                 System.out.println("Você escolheu Ver Funcionários!");
             } else if (opcao == 2) {
-                cadastrarFuncionario(); // Roda uma função que imprime na tela "CADASTRO DE FUNCIONÁRIOS"
+                
+                cadastrarFuncionario();
+
+                System.out.println(funcionarios);
+                // Crie uma função que imprime na tela "CADASTRO DE FUNCIONÁRIOS"
                 // Agora modifique a função para executar a operação de criar um funcionário:
                 // Solicitar ao usuário as informações do funcionário (matricula, nome, cpf, cargo, salário)
                 // Criar um objeto do tipo de funcionário com essas informações
@@ -87,7 +108,9 @@ public class App {
 
         novoFuncionario.mostrarInformacoes();
 
-        
+        funcionarios.add(novoFuncionario);
+
+
     }
 
     public static void minhaFuncao(){
