@@ -7,7 +7,7 @@ public class App {
 
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
-        
+
         // Crie um programa que imprime na tela a seguinte mensagem:
 
         /*
@@ -23,12 +23,17 @@ public class App {
          * 
          */
 
-        // Crie uma lista para armazenar os funcionários de seu programa. Elabore uma maneira de adicionar os funcionários a esta lista quando executar o cadastrarFuncionarios().
+        // Crie uma lista para armazenar os funcionários de seu programa. Elabore uma
+        // maneira de adicionar os funcionários a esta lista quando executar o
+        // cadastrarFuncionarios().
         // 1. Criar a lista de funcionários logo abaixo da linha public class App
-        // 2. Na função cadastrarFuncionario(), inserir uma linha funcionarios.add(novoFuncionário)
-         
-        // Crie uma função verFuncionarios() que lê a lista de funcionários e os exibe na tela como no exemplo:
-        /* Lista de Funcionários:
+        // 2. Na função cadastrarFuncionario(), inserir uma linha
+        // funcionarios.add(novoFuncionário)
+
+        // Crie uma função verFuncionarios() que lê a lista de funcionários e os exibe
+        // na tela como no exemplo:
+        /*
+         * Lista de Funcionários:
          * 1. Fulano da Silva
          * 2. Manoel Ciclano
          * 3. Beltrano Moreira
@@ -56,15 +61,20 @@ public class App {
             // pessoa não escolher a opção 0. Sair
 
             if (opcao == 1) {
-                System.out.println("Você escolheu Ver Funcionários!");
+
+                verFuncionarios();
+                // Exiba um número ao lado do nome dos funcionários e permita que a pessoa digite o número do funcionário que ela deseja ver mais informações. Use o mostrarInformações do funcionário escolhido.
+
+
             } else if (opcao == 2) {
-                
+
                 cadastrarFuncionario();
 
                 System.out.println(funcionarios);
                 // Crie uma função que imprime na tela "CADASTRO DE FUNCIONÁRIOS"
                 // Agora modifique a função para executar a operação de criar um funcionário:
-                // Solicitar ao usuário as informações do funcionário (matricula, nome, cpf, cargo, salário)
+                // Solicitar ao usuário as informações do funcionário (matricula, nome, cpf,
+                // cargo, salário)
                 // Criar um objeto do tipo de funcionário com essas informações
                 // Rodar o mostrarInformações desse funcionário
             } else if (opcao == 3) {
@@ -84,7 +94,42 @@ public class App {
         }
     }
 
-    public static void cadastrarFuncionario(){
+    public static void verFuncionarios() {
+        System.out.println("VISUALIZAÇÃO DE FUNCIONÁRIOS");
+
+        System.out.println("----------------------------");
+        System.out.println("Lista de Funcionários:");
+
+        // For tradicional
+        for (int i = 0; i < funcionarios.size(); i++) {
+
+            int numero = i + 1;
+            Funcionario funcionarioDaVez = funcionarios.get(i);
+
+            System.out.println(numero + ". " + funcionarioDaVez.nome);
+
+        }
+
+        // For each
+        System.out.println("----------------------------");
+        System.out.println("Lista de Funcionários:");
+        int contador = 1;
+        for (Funcionario f : funcionarios) {
+            System.out.println(contador + ". " + f.nome);
+            contador++;
+        }
+
+        System.out.println("----------------------------");
+        System.out.println("Lista de Funcionários:");
+        System.out.println("MATRICULA | NOME | CPF | CARGO | SALÁRIO");
+
+        for (Funcionario f : funcionarios) {
+            System.out.println(f.matricula + " | " + f.nome + " | " + f.cpf + " | " + f.cargo + " | R$" + f.salario);
+        }
+
+    }
+
+    public static void cadastrarFuncionario() {
         Scanner leitor = new Scanner(System.in);
 
         System.out.println("CADASTRO DE FUNCIONÁRIOS");
@@ -108,12 +153,12 @@ public class App {
 
         novoFuncionario.mostrarInformacoes();
 
+        System.out.println("Funcionário Cadastrado com Sucesso!");
         funcionarios.add(novoFuncionario);
-
 
     }
 
-    public static void minhaFuncao(){
+    public static void minhaFuncao() {
         System.out.println("Esta função está executando!");
     }
 
