@@ -7,7 +7,7 @@ public class App {
 
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
-
+    
         // Crie um programa que imprime na tela a seguinte mensagem:
 
         /*
@@ -53,7 +53,6 @@ public class App {
             System.out.println("0. Sair");
 
             System.out.println("\nDigite a opção desejada: ");
-
             int opcao = Integer.parseInt(leitor.nextLine());
 
             // Ao escolher a opção, utilize uma estrutura de decisão (if-else/switch) para
@@ -64,21 +63,8 @@ public class App {
             if (opcao == 1) {
 
                 verFuncionarios();
-                // Exiba um número ao lado do nome dos funcionários e permita que a pessoa
-                // digite o número do funcionário que ela deseja ver mais informações. Use o
-                // mostrarInformações do funcionário escolhido.
-                System.out.println("Digite o número do funcionário escolhido:");
-                int numeroFuncionario = Integer.parseInt(leitor.nextLine());
+                // Exiba um número ao lado do nome dos funcionários e permita que a pessoa digite o número do funcionário que ela deseja ver mais informações. Use o mostrarInformações do funcionário escolhido.
 
-                if (numeroFuncionario > 0 && numeroFuncionario <= funcionarios.size()) {
-                    Funcionario funcionarioEscolhido = funcionarios.get(numeroFuncionario - 1);
-                    funcionarioEscolhido.mostrarInformacoes();
-
-                } else {
-                    System.out.println("Número inválido");
-                }
-
-                // Dica: funcionarios.get()
 
             } else if (opcao == 2) {
 
@@ -93,19 +79,8 @@ public class App {
                 // Rodar o mostrarInformações desse funcionário
             } else if (opcao == 3) {
                 System.out.println("Você escolheu Alterar Funcionário!");
-
-                //Criar a função alterarFuncionario() onde é exibida a lista de funcionários, o usuário escolhe um funcionário da lista e o programa pede cada informação que deverá ser alterada do funcionário.
-
             } else if (opcao == 4) {
-
-                removerFuncionario();
-
-                // Crie uma função chamada removerFuncionario(). Essa função deve exibir a lista
-                // de funcionários, pedir ao usuário que selecione um dos funcionários, o
-                // funcionário selecionado deve ser removido da lista e uma mensagem deve ser
-                // exibida confirmando a remoção. Exemplo: "O funcionário 12345 foi removido com
-                // sucesso!"
-
+                System.out.println("Você escolheu Remover Funcionário!");
             } else if (opcao == 0) {
                 System.out.println("Você escolheu Sair!");
                 break;
@@ -120,6 +95,21 @@ public class App {
     }
 
     public static void verFuncionarios() {
+        System.out.println("VISUALIZAÇÃO DE FUNCIONÁRIOS");
+
+        System.out.println("----------------------------");
+        System.out.println("Lista de Funcionários:");
+
+        // For tradicional
+        for (int i = 0; i < funcionarios.size(); i++) {
+
+            int numero = i + 1;
+            Funcionario funcionarioDaVez = funcionarios.get(i);
+
+            System.out.println(numero + ". " + funcionarioDaVez.nome);
+
+        }
+
         // For each
         System.out.println("----------------------------");
         System.out.println("Lista de Funcionários:");
@@ -129,73 +119,14 @@ public class App {
             contador++;
         }
 
-        // System.out.println("----------------------------");
-        // System.out.println("Lista de Funcionários:");
-
-        // // For tradicional
-        // for (int i = 0; i < funcionarios.size(); i++) {
-
-        // int numero = i + 1;
-        // Funcionario funcionarioDaVez = funcionarios.get(i);
-
-        // System.out.println(numero + ". " + funcionarioDaVez.nome);
-
-        // }
-
-        // System.out.println("----------------------------");
-        // System.out.println("Lista de Funcionários:");
-        // System.out.println("MATRICULA | NOME | CPF | CARGO | SALÁRIO");
-
-        // for (Funcionario f : funcionarios) {
-        // System.out.println(f.matricula + " | " + f.nome + " | " + f.cpf + " | " +
-        // f.cargo + " | R$" + f.salario);
-        // }
-
-    }
-
-    public static void removerFuncionario() {
-        Scanner leitor = new Scanner(System.in);
-        System.out.println("REMOÇÃO DE FUNCIONÁRIO");
         System.out.println("----------------------------");
+        System.out.println("Lista de Funcionários:");
+        System.out.println("MATRICULA | NOME | CPF | CARGO | SALÁRIO");
 
-        verFuncionarios();
-
-        System.out.println("Digite o número do funcionário que deseja remover: ");
-        int numeroEscolhido = Integer.parseInt(leitor.nextLine());
-
-        if (numeroEscolhido > 0 && numeroEscolhido <= funcionarios.size()) {
-            Funcionario funcionarioEscolhido = funcionarios.get(numeroEscolhido - 1);
-
-            funcionarioEscolhido.mostrarInformacoes();
-
-            // System.out.println("Digite o novo nome:");
-            // String novoNome = leitor.nextLine();
-
-            // if (!novoNome.equals("")){
-            //     funcionarioEscolhido.nome = novoNome;
-            // }
-
-            System.out.println("Tem certeza que deseja remover este funcionário? (SIM/NAO)");
-            String resposta = leitor.nextLine();
-
-            if (resposta.equals("SIM")) {
-
-                System.out.println("O funcionário #" + funcionarioEscolhido.matricula + " foi removido!");
-
-                funcionarios.remove(funcionarioEscolhido);
-                
-            }
-            else{
-                System.out.println("Remoção cancelada!");
-            }
-            // funcionarios.remove(numeroEscolhido-1);
-        }
-        else{
-            System.out.println("Número inválido!");
+        for (Funcionario f : funcionarios) {
+            System.out.println(f.matricula + " | " + f.nome + " | " + f.cpf + " | " + f.cargo + " | R$" + f.salario);
         }
 
-        System.out.println("Lista atualizada!");
-        verFuncionarios();
     }
 
     public static void cadastrarFuncionario() {
