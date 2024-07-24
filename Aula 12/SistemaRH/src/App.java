@@ -92,9 +92,11 @@ public class App {
                 // Criar um objeto do tipo de funcionário com essas informações
                 // Rodar o mostrarInformações desse funcionário
             } else if (opcao == 3) {
-                System.out.println("Você escolheu Alterar Funcionário!");
+                alterarFuncionario();
 
-                //Criar a função alterarFuncionario() onde é exibida a lista de funcionários, o usuário escolhe um funcionário da lista e o programa pede cada informação que deverá ser alterada do funcionário.
+                // Criar a função alterarFuncionario() onde é exibida a lista de funcionários, o
+                // usuário escolhe um funcionário da lista e o programa pede cada informação que
+                // deverá ser alterada do funcionário.
 
             } else if (opcao == 4) {
 
@@ -153,6 +155,50 @@ public class App {
 
     }
 
+    public static void alterarFuncionario() {
+        Scanner leitor = new Scanner(System.in);
+        System.out.println("ALTERAÇÃO DE FUNCIONÁRIO");
+        System.out.println("----------------------------");
+        verFuncionarios();
+
+        System.out.println("Digite o número do funcionário que deseja modificar: ");
+        int numeroEscolhido = Integer.parseInt(leitor.nextLine());
+
+        if (numeroEscolhido > 0 && numeroEscolhido <= funcionarios.size()) {
+            Funcionario funcionarioEscolhido = funcionarios.get(numeroEscolhido - 1);
+
+            funcionarioEscolhido.mostrarInformacoes();
+
+            System.out.println("Digite o novo nome:");
+            String novoNome = leitor.nextLine();
+
+            System.out.println("Digite o novo cpf:");
+            String novoCpf = leitor.nextLine();
+
+            System.out.println("Digite o novo cargo:");
+            String novoCargo = leitor.nextLine();
+
+            System.out.println("Digite o novo salário:");
+            Double novoSalario = Double.parseDouble(leitor.nextLine());
+
+            if (!novoNome.equals("")) {
+
+                funcionarioEscolhido.nome = novoNome;
+            }
+
+            funcionarioEscolhido.cpf = novoCpf;
+            funcionarioEscolhido.cargo = novoCargo;
+            funcionarioEscolhido.salario = novoSalario;
+
+            System.out.println("Funcionário Atualizado");
+
+            funcionarioEscolhido.mostrarInformacoes();
+
+        } else {
+            System.out.println("Escolha um número válido!");
+        }
+    }
+
     public static void removerFuncionario() {
         Scanner leitor = new Scanner(System.in);
         System.out.println("REMOÇÃO DE FUNCIONÁRIO");
@@ -172,7 +218,7 @@ public class App {
             // String novoNome = leitor.nextLine();
 
             // if (!novoNome.equals("")){
-            //     funcionarioEscolhido.nome = novoNome;
+            // funcionarioEscolhido.nome = novoNome;
             // }
 
             System.out.println("Tem certeza que deseja remover este funcionário? (SIM/NAO)");
@@ -183,14 +229,12 @@ public class App {
                 System.out.println("O funcionário #" + funcionarioEscolhido.matricula + " foi removido!");
 
                 funcionarios.remove(funcionarioEscolhido);
-                
-            }
-            else{
+
+            } else {
                 System.out.println("Remoção cancelada!");
             }
             // funcionarios.remove(numeroEscolhido-1);
-        }
-        else{
+        } else {
             System.out.println("Número inválido!");
         }
 
