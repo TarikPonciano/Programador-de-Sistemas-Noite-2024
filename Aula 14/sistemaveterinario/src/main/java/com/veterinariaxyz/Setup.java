@@ -5,6 +5,7 @@ import java.sql.*;
 public class Setup {
     public static void main(String[] args) {
         try {
+
             String url = "jdbc:mysql://localhost:3306/";
             String user = "root";
             String password = "Aluno";
@@ -14,11 +15,11 @@ public class Setup {
             System.out.println("Conexão realizada com sucesso!");
 
             Statement statement = conexaoBanco.createStatement();
-            statement.execute("DROP DATABASE IF EXISTS hospitalvet2");
-            statement.execute("CREATE DATABASE hospitalvet2");
+            statement.execute("DROP DATABASE IF EXISTS hospitalvet3");
+            statement.execute("CREATE DATABASE hospitalvet3");
             System.out.println("Banco criado com sucesso!");
 
-            statement.execute("USE hospitalvet2");
+            statement.execute("USE hospitalvet3");
 
             String sqlTabelaPaciente = "CREATE TABLE paciente(" +
                     "idpaciente INT NOT NULL AUTO_INCREMENT PRIMARY KEY," +
@@ -30,6 +31,8 @@ public class Setup {
                     ")";
             statement.execute("DROP TABLE IF EXISTS paciente;");
             statement.execute(sqlTabelaPaciente);
+
+            System.out.println("Tabela criada com sucesso!");
 
             statement.close();
             conexaoBanco.close();
