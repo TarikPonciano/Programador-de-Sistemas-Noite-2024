@@ -88,6 +88,25 @@ public class DBConexao {
 
     }
 
+    public void inserirAluno(Aluno novoAluno){
+        String sql = "INSERT INTO aluno VALUES (default, ?, ?, ?, YEAR(Curdate()), ?, ?)";
+        this.conectar();
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setString(1, novoAluno.getNome());
+            pst.setString(2, novoAluno.getCpf());
+            pst.setString(3, novoAluno.getDataDeNascimento());
+            pst.setDouble(4, novoAluno.getMedia());
+            pst.setInt(5, novoAluno.getFaltas());
+
+            pst.execute();
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        this.desconectar();
+    }
+
     public void desconectar() {
 
         try {

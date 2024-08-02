@@ -39,11 +39,28 @@ public class Main {
 
             } else if (op.equals("2")) {
                 // Pedir as informações do aluno
+                System.out.println("CADASTRO DE USUÁRIO");
 
+                System.out.println("Digite o nome:");
+                String nome = leitor.nextLine();
+
+                System.out.println("Digite o cpf:");
+                String cpf = leitor.nextLine();
+
+                System.out.println("Digite a data de nascimento (ano-mês-dia):");
+                String dataNascimento = leitor.nextLine();  
+
+                System.out.println("Digite a média do aluno:");
+                double media = Double.parseDouble(leitor.nextLine());
+
+                System.out.println("Digite as faltas do aluno:");
+                int falta = Integer.parseInt(leitor.nextLine());
                 // Montar um objeto do tipo Aluno
+                Aluno novoAluno = new Aluno(0, nome, cpf, dataNascimento, 0, media, falta);
 
                 // Enviar para o objeto conexao
-                //conexao.inserirAluno();
+                conexao.inserirAluno(novoAluno);
+
             } else if (op.equals("3")) {
                 System.out.println("Rodando o modificar aluno!");
             } else if (op.equals("4")) {

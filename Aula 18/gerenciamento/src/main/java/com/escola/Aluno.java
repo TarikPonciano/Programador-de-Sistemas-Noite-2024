@@ -28,7 +28,7 @@ public class Aluno {
         this.matricula = matricula;
     }
 
-    public String getNome(String senha) {
+    public String getNome() {
 
         return nome;
     }
