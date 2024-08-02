@@ -40,12 +40,10 @@ public class Main {
             } else if (op.equals("2")) {
                 // Pedir as informações do aluno
 
-                // Criar conexão com o banco
-                conexao.conectar();
-                // Executar sql de inserção
+                // Montar um objeto do tipo Aluno
 
-                // Fechar conexão
-                conexao.desconectar();
+                // Enviar para o objeto conexao
+                //conexao.inserirAluno();
             } else if (op.equals("3")) {
                 System.out.println("Rodando o modificar aluno!");
             } else if (op.equals("4")) {
